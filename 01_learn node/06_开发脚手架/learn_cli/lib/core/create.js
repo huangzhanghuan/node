@@ -1,6 +1,7 @@
 const program = require('commander')
 const {
-    createProjectAction
+    createProjectAction,
+    addCpnAction
 } = require('./action')
 
 const createCommand = () =>{
@@ -8,6 +9,11 @@ const createCommand = () =>{
         .command('create <project> [others...]')
         .description('clone repository into a folder')
         .action(createProjectAction)
+    
+     program
+        .command('addcpn <name>')
+        .description('add vue component, 例如 learn_cli addcpn Helloworld -d src/components')
+        .action(addCpnAction)
 }
 
 module.exports = createCommand
